@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "ev-accessory-1",
+      "description": "Premium EV Car Seat Cushion",
+      "imageUrl": "https://picsum.photos/seed/ev-accessory/600/600",
+      "imageHint": "car seat cushion"
+    }
+  ]
 }
