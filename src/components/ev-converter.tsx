@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { AISandbox } from '@/components/ai-sandbox';
 import { CostCalculator } from '@/components/cost-calculator';
 import { Battery, Zap, Gauge, MapPin } from 'lucide-react';
 
@@ -134,9 +133,8 @@ export function EVConverter() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+      <div className="mt-12">
         <CostCalculator kmPerCharge={results[activeStandard] || 100} />
-        <AISandbox />
       </div>
     </div>
   );
