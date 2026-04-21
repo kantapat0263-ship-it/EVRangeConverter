@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ["'Space Grotesk'", 'sans-serif'],
+        headline: ["'Space Grotesk'", 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -26,28 +26,28 @@ export default {
           foreground: 'hsl(var(--popover-foreground))',
         },
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: '#33BCFF',
+          foreground: '#121516',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: '#75F0DB',
+          foreground: '#121516',
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
+          DEFAULT: 'rgba(255, 255, 255, 0.1)',
           foreground: 'hsl(var(--muted-foreground))',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: '#33BCFF',
+          foreground: '#ffffff',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
+        border: 'rgba(255, 255, 255, 0.1)',
+        input: 'rgba(255, 255, 255, 0.05)',
+        ring: '#33BCFF',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -67,9 +67,9 @@ export default {
         },
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        lg: '1rem',
+        md: '0.75rem',
+        sm: '0.5rem',
       },
       keyframes: {
         'accordion-down': {
@@ -88,10 +88,15 @@ export default {
             height: '0',
           },
         },
+        'glow-pulse': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.6' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'glow-pulse': 'glow-pulse 2s infinite ease-in-out',
       },
     },
   },
