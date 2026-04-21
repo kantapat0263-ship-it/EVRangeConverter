@@ -10,6 +10,13 @@ import { Battery, Zap, Gauge, MapPin } from 'lucide-react';
 
 type Standard = 'CLTC' | 'WLTP' | 'EPA' | 'NEDC';
 
+const standardDescriptions: Record<Standard, string> = {
+  CLTC: 'Optimistic range',
+  WLTP: 'Balanced standard',
+  EPA: 'Real-world estimate',
+  NEDC: 'Legacy standard'
+};
+
 export function EVConverter() {
   const [activeStandard, setActiveStandard] = useState<Standard>('CLTC');
   const [inputValue, setInputValue] = useState<string>('');
@@ -64,14 +71,17 @@ export function EVConverter() {
             onValueChange={(v) => setActiveStandard(v as Standard)}
             className="w-full"
           >
-            <TabsList className="grid grid-cols-4 w-full bg-white/5 p-1 h-12">
+            <TabsList className="grid grid-cols-4 w-full bg-white/5 p-1 h-14">
               {(['CLTC', 'WLTP', 'EPA', 'NEDC'] as Standard[]).map((std) => (
                 <TabsTrigger 
                   key={std} 
                   value={std}
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs md:text-sm transition-all duration-300"
+                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs md:text-sm transition-all duration-300 flex flex-col items-center justify-center gap-0.5 h-full"
                 >
-                  {std}
+                  <span className="font-bold">{std}</span>
+                  <span className="text-[8px] md:text-[9px] opacity-70 font-light hidden sm:block uppercase tracking-tighter">
+                    {standardDescriptions[std].split(' ')[0]}...
+                  </span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -86,7 +96,7 @@ export function EVConverter() {
               onChange={(e) => setInputValue(e.target.value)}
               className="relative h-16 text-2xl bg-[#121516] border-white/10 rounded-xl px-6 focus:ring-primary focus:border-primary placeholder:text-muted-foreground/30 font-headline"
             />
-            <div className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground font-light tracking-widest">
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground font-light tracking-widest text-xs md:text-sm">
               KM / {activeStandard}
             </div>
           </div>
@@ -101,8 +111,13 @@ export function EVConverter() {
             className={`glass-card relative overflow-hidden group ${std === activeStandard ? 'border-primary/50' : ''}`}
           >
             <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase">{std} STANDARD</span>
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase">{std} STANDARD</span>
+                  <span className="text-[10px] text-muted-foreground/50 font-light leading-tight mt-0.5">
+                    {standardDescriptions[std]}
+                  </span>
+                </div>
                 {getIcon(std)}
               </div>
               <div className="flex flex-col">
