@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Info, Globe, ShieldCheck, History, Landmark } from 'lucide-react';
+import { Info, Globe, ShieldCheck, History, Landmark, Lightbulb } from 'lucide-react';
 
 export function EVInformation() {
   return (
@@ -92,6 +92,26 @@ export function EVInformation() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Insight Section */}
+      <Card className="glass border-primary/20 bg-primary/5">
+        <CardContent className="p-6">
+          <div className="flex items-start gap-4">
+            <div className="p-2 rounded-lg bg-primary/20 text-primary">
+              <Lightbulb className="w-6 h-6" />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-primary">💡 Insight</h3>
+              <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                ระยะทาง EV ที่ผู้ผลิตระบุ อาจแตกต่างจากการใช้งานจริง เพราะแต่ละมาตรฐานใช้วิธีทดสอบไม่เหมือนกัน
+              </p>
+              <p className="text-sm font-medium text-foreground">
+                แนะนำให้ใช้ค่า <span className="text-orange-400">EPA</span> หรือ <span className="text-secondary">WLTP</span> เป็นตัวอ้างอิงในการใช้งานจริง
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
