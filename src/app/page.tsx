@@ -1,5 +1,6 @@
 import { EVConverter } from '@/components/ev-converter';
 import { EVHeader } from '@/components/ev-header';
+import { EVInformation } from '@/components/ev-information';
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <EVHeader />
       <div className="w-full max-w-4xl space-y-12">
         <EVConverter />
+        <EVInformation />
       </div>
       
       <footer className="mt-12 text-muted-foreground text-sm font-light text-center">
