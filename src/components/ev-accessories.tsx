@@ -46,8 +46,8 @@ export function EVAccessories() {
             <CardContent className="p-4 bg-white/[0.02]">
               <div className="flex items-center justify-between gap-2">
                 <div>
-                  <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                    เบาะรองนั่ง EV พรีเมียม (BYD และรุ่นอื่นๆ)
+                  <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
+                    เบาะรองนั่งกันสีกางเกงยีนส์สำหรับ BYD
                   </h3>
                   <p className="text-xs text-muted-foreground mt-1 font-light">
                     เพิ่มความสบายและปกป้องเบาะรถของคุณ
