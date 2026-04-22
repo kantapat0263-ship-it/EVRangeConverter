@@ -2,9 +2,19 @@
   "placeholderImages": [
     {
       "id": "ev-accessory-1",
-      "description": "เบาะรองนั่งกันสีกางเกงยีนส์สำหรับ BYD",
+      "title": "เบาะรองนั่งกันสีกางเกงยีนส์สำหรับ BYD",
+      "description": "เพิ่มความสบายและปกป้องเบาะรถของคุณ",
       "imageUrl": "https://img1.pic.in.th/images/sg-11134201-7rdvw-mc1k9t0aq75s36resize_w450_nl.webp",
-      "imageHint": "ev seat cushion"
+      "imageHint": "ev seat cushion",
+      "link": "https://s.shopee.co.th/9fH8UwUmv8?share_channel_code=6"
+    },
+    {
+      "id": "ev-accessory-2",
+      "title": "BYD SEALION 6 อุปกรณ์จัดระเบียบคอนโซลและที่พักแขน",
+      "description": "ช่วยจัดระเบียบสิ่งของภายในรถให้หยิบใช้ง่าย",
+      "imageUrl": "https://picsum.photos/seed/ev-organizer-1/600/600",
+      "imageHint": "console organizer",
+      "link": "https://s.shopee.co.th/LjU6ldqUE?share_channel_code=6"
     }
   ]
 }
