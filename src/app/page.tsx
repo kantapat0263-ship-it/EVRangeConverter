@@ -31,7 +31,7 @@ export default function Home() {
               />
             </div>
             <span className="text-[10px] text-muted-foreground group-hover:text-primary tracking-[0.2em] uppercase font-medium transition-colors">
-              ติดตามข้อมูลเพิ่มเติมที่ Facebook
+              ติดตั้งลำโพงคุณภาพ
             </span>
           </a>
         </div>
