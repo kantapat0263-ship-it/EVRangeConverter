@@ -3,6 +3,7 @@ import { EVConverter } from '@/components/ev-converter';
 import { EVHeader } from '@/components/ev-header';
 import { EVInformation } from '@/components/ev-information';
 import { EVAccessories } from '@/components/ev-accessories';
+import { EVGuide } from '@/components/ev-guide';
 import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/app-sidebar';
 
@@ -19,6 +20,10 @@ export default function Home() {
           <div className="w-full max-w-4xl space-y-24">
             <section id="converter" className="scroll-mt-24">
               <EVConverter />
+            </section>
+
+            <section id="guide" className="scroll-mt-24">
+              <EVGuide />
             </section>
             
             <section id="info" className="scroll-mt-24">

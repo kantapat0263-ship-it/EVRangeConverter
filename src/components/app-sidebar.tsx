@@ -6,7 +6,8 @@ import {
   Calculator,
   Info,
   ShoppingBag,
-  Zap
+  Zap,
+  BookOpen
 } from "lucide-react"
 
 import {
@@ -31,6 +32,11 @@ const items = [
     title: "คำนวณระยะทาง",
     url: "#converter",
     icon: Calculator,
+  },
+  {
+    title: "คู่มือการใช้งาน",
+    url: "#guide",
+    icon: BookOpen,
   },
   {
     title: "ข้อมูลมาตรฐาน",
