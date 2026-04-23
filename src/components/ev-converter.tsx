@@ -112,7 +112,14 @@ export function EVConverter() {
             <CardContent className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase">{std} STANDARD</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase">{std} STANDARD</span>
+                    {std === 'EPA' && (
+                      <span className="text-[9px] bg-orange-500/20 text-orange-400 px-1.5 py-0.5 rounded border border-orange-500/30 font-medium whitespace-nowrap">
+                        ใกล้เคียงที่สุด
+                      </span>
+                    )}
+                  </div>
                   <span className="text-[10px] text-muted-foreground/50 font-light leading-tight mt-0.5">
                     {standardDescriptions[std]}
                   </span>
