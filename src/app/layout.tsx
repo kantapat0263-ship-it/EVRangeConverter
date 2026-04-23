@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'EV Range Converter | เครื่องมือแปลงระยะทางรถยนต์ไฟฟ้า',
-  description: 'แปลงค่าระยะทางรถยนต์ไฟฟ้ามาตรฐาน CLTC, WLTP, EPA, NEDC แบบเรียลไทม์ พร้อมคำนวณค่าไฟ',
+  title: 'EV Range Calculator | Convert Distance to Battery Usage',
+  description: 'Free EV range calculator. Convert kilometers to battery usage instantly. Accurate for Tesla, BYD and all electric vehicles.',
 };
 
 export default function RootLayout({
