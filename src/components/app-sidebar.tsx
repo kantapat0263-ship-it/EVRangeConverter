@@ -34,7 +34,7 @@ const items = [
     icon: Calculator,
   },
   {
-    title: "คู่มือการใช้งาน",
+    title: "EV Range Guide",
     url: "#guide",
     icon: BookOpen,
   },

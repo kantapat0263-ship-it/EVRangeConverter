@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, HelpCircle, CheckCircle2, AlertCircle, Users, Lightbulb } from 'lucide-react';
+import { HelpCircle, CheckCircle2, AlertCircle, Users, Lightbulb } from 'lucide-react';
 
 export function EVGuide() {
   return (
@@ -67,34 +67,6 @@ export function EVGuide() {
           </CardContent>
         </Card>
       </div>
-
-      <Card className="glass border-primary/20 bg-primary/5">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-xl font-bold text-primary">
-            <BookOpen className="w-6 h-6" />
-            วิธีใช้ EV Range Calculator
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <p className="text-muted-foreground font-light">
-            เครื่องมือ <strong>EV range calculator</strong> ของเราถูกออกแบบให้ใช้งานง่าย:
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { step: "1", text: "ใส่ระยะทางที่ต้องการ (km)" },
-              { step: "2", text: "ใส่อัตราการใช้พลังงาน (Wh/km)" },
-              { step: "3", text: "ระบบจะคำนวณพลังงานที่ใช้ทันที" }
-            ].map((item) => (
-              <div key={item.step} className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
-                <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold mx-auto mb-3">
-                  {item.step}
-                </div>
-                <p className="text-sm font-light">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
 
       <div className="space-y-6">
         <h3 className="text-2xl font-bold flex items-center gap-2">
