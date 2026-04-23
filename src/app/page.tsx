@@ -4,7 +4,6 @@ import { EVHeader } from '@/components/ev-header';
 import { EVInformation } from '@/components/ev-information';
 import { EVAccessories } from '@/components/ev-accessories';
 import { EVGuide } from '@/components/ev-guide';
-import { EVTripPlanner } from '@/components/ev-trip-planner';
 import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/app-sidebar';
 
@@ -25,10 +24,6 @@ export default function Home() {
 
             <section id="guide" className="scroll-mt-24">
               <EVGuide />
-            </section>
-
-            <section id="trip-planner" className="scroll-mt-24">
-              <EVTripPlanner />
             </section>
             
             <section id="info" className="scroll-mt-24">
