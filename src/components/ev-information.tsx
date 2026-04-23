@@ -93,6 +93,13 @@ export function EVInformation() {
         </Card>
       </div>
 
+      <div className="py-4 text-center">
+        <p className="text-muted-foreground text-sm font-light">
+          ลองใช้เครื่องมือของเราได้ที่นี่ 👉 
+          <a href="/" className="text-primary hover:underline font-medium ml-2">EV Range Calculator Tool</a>
+        </p>
+      </div>
+
       {/* Insight Section */}
       <Card className="glass border-primary/20 bg-primary/5">
         <CardContent className="p-6">

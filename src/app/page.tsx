@@ -32,6 +32,12 @@ export default function Home() {
             
             <section id="accessories" className="scroll-mt-24">
               <EVAccessories />
+              <div className="mt-8 text-center">
+                <p className="text-muted-foreground text-sm font-light">
+                  ลองใช้เครื่องมือของเราได้ที่นี่ 👉 
+                  <a href="/" className="text-primary hover:underline font-medium ml-2">EV Range Calculator Tool</a>
+                </p>
+              </div>
             </section>
           </div>
           
