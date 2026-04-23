@@ -7,7 +7,8 @@ import {
   Info,
   ShoppingBag,
   Zap,
-  BookOpen
+  BookOpen,
+  Map
 } from "lucide-react"
 
 import {
@@ -37,6 +38,11 @@ const items = [
     title: "EV Range Guide",
     url: "#guide",
     icon: BookOpen,
+  },
+  {
+    title: "วางแผนเดินทาง",
+    url: "#trip-planner",
+    icon: Map,
   },
   {
     title: "ข้อมูลมาตรฐาน",
