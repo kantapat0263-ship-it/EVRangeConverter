@@ -6,19 +6,14 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { CostCalculator } from '@/components/cost-calculator';
 import { Battery, Zap, Gauge, MapPin } from 'lucide-react';
+import { useLanguage } from '@/context/language-context';
 
 type Standard = 'NEDC' | 'EPA' | 'WLTP' | 'CLTC';
-
-const standardDescriptions: Record<Standard, string> = {
-  NEDC: 'Legacy standard',
-  EPA: 'Real-world estimate',
-  WLTP: 'Balanced standard',
-  CLTC: 'Optimistic range'
-};
 
 const standardOrder: Standard[] = ['NEDC', 'EPA', 'WLTP', 'CLTC'];
 
 export function EVConverter() {
+  const { t } = useLanguage();
   const [activeStandard, setActiveStandard] = useState<Standard>('NEDC');
   const [inputValue, setInputValue] = useState<string>('');
   const [results, setResults] = useState<Record<Standard, number>>({
@@ -27,6 +22,13 @@ export function EVConverter() {
     WLTP: 0,
     CLTC: 0
   });
+
+  const standardDescriptions: Record<Standard, string> = {
+    NEDC: 'Legacy standard',
+    EPA: 'Real-world estimate',
+    WLTP: 'Balanced standard',
+    CLTC: 'Optimistic range'
+  };
 
   useEffect(() => {
     const val = parseFloat(inputValue);
@@ -64,7 +66,6 @@ export function EVConverter() {
 
   return (
     <div className="space-y-8">
-      {/* Input Section */}
       <Card className="glass border-primary/20 overflow-hidden">
         <CardContent className="p-8 space-y-6">
           <Tabs 
@@ -92,7 +93,7 @@ export function EVConverter() {
             <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-25 group-focus-within:opacity-50 transition duration-1000"></div>
             <Input
               type="number"
-              placeholder="ใส่ระยะทาง (กม.)..."
+              placeholder={t('converter.placeholder')}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               className="relative h-16 text-2xl bg-[#121516] border-white/10 rounded-xl px-6 focus:ring-primary focus:border-primary placeholder:text-muted-foreground/30 font-headline"
@@ -104,7 +105,6 @@ export function EVConverter() {
         </CardContent>
       </Card>
 
-      {/* Results Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {standardOrder.map((std) => (
           <Card 
@@ -115,10 +115,10 @@ export function EVConverter() {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase">{std} STANDARD</span>
+                    <span className="text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase">{std} {t('converter.standard')}</span>
                     {std === 'EPA' && (
                       <span className="text-[9px] bg-orange-500/20 text-orange-400 px-1.5 py-0.5 rounded border border-orange-500/30 font-medium whitespace-nowrap">
-                        ใกล้เคียงที่สุด
+                        {t('converter.most_accurate')}
                       </span>
                     )}
                   </div>
@@ -132,7 +132,7 @@ export function EVConverter() {
                 <span className={`text-4xl font-bold font-headline transition-all duration-500 ${std === activeStandard ? 'text-primary scale-110 origin-left' : 'text-white'}`}>
                   {formatNumber(results[std])}
                 </span>
-                <span className="text-sm text-muted-foreground mt-1">กิโลเมตร</span>
+                <span className="text-sm text-muted-foreground mt-1">{t('converter.unit')}</span>
               </div>
               {std === activeStandard && (
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-primary neon-glow" />

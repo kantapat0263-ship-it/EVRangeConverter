@@ -21,36 +21,39 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
 } from "@/components/ui/sidebar"
-
-const items = [
-  {
-    title: "หน้าหลัก",
-    url: "#top",
-    icon: Home,
-  },
-  {
-    title: "คำนวณระยะทาง",
-    url: "#converter",
-    icon: Calculator,
-  },
-  {
-    title: "EV Range Guide",
-    url: "#guide",
-    icon: BookOpen,
-  },
-  {
-    title: "ข้อมูลมาตรฐาน",
-    url: "#info",
-    icon: Info,
-  },
-  {
-    title: "อุปกรณ์แนะนำ",
-    url: "#accessories",
-    icon: ShoppingBag,
-  },
-]
+import { useLanguage } from "@/context/language-context"
 
 export function AppSidebar() {
+  const { t } = useLanguage();
+
+  const items = [
+    {
+      title: t('nav.home'),
+      url: "#top",
+      icon: Home,
+    },
+    {
+      title: t('nav.calculator'),
+      url: "#converter",
+      icon: Calculator,
+    },
+    {
+      title: t('nav.guide'),
+      url: "#guide",
+      icon: BookOpen,
+    },
+    {
+      title: t('nav.info'),
+      url: "#info",
+      icon: Info,
+    },
+    {
+      title: t('nav.accessories'),
+      url: "#accessories",
+      icon: ShoppingBag,
+    },
+  ]
+
   return (
     <Sidebar className="border-white/5 bg-background/50 backdrop-blur-xl">
       <SidebarHeader className="p-6">
@@ -64,7 +67,7 @@ export function AppSidebar() {
       <SidebarContent className="px-2">
         <SidebarGroup>
           <SidebarGroupLabel className="text-muted-foreground/50 tracking-[0.3em] uppercase text-[9px] px-4 mb-4">
-            Navigation
+            {t('nav.navigation')}
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

@@ -5,14 +5,17 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ShoppingBag, ExternalLink } from 'lucide-react';
+import { useLanguage } from '@/context/language-context';
 
 export function EVAccessories() {
+  const { t } = useLanguage();
+
   return (
     <div className="w-full space-y-6 mt-12">
       <div className="flex items-center gap-3">
         <div className="h-8 w-1 bg-secondary rounded-full shadow-[0_0_10px_rgba(117,240,219,0.8)]" />
         <h2 className="text-2xl font-bold tracking-tight flex items-center gap-2">
-          🛍️ อุปกรณ์รถ EV ที่แนะนำ
+          {t('accessories.title')}
         </h2>
       </div>
 
@@ -56,6 +59,13 @@ export function EVAccessories() {
             </Card>
           </a>
         ))}
+      </div>
+
+      <div className="mt-8 text-center">
+        <p className="text-muted-foreground text-sm font-light">
+          {t('info.seo_link')}
+          <a href="/" className="text-primary hover:underline font-medium ml-2">EV Range Calculator Tool</a>
+        </p>
       </div>
     </div>
   );
