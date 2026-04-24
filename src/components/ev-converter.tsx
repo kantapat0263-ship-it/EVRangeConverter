@@ -7,29 +7,31 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CostCalculator } from '@/components/cost-calculator';
 import { Battery, Zap, Gauge, MapPin } from 'lucide-react';
 
-type Standard = 'CLTC' | 'WLTP' | 'EPA' | 'NEDC';
+type Standard = 'NEDC' | 'EPA' | 'WLTP' | 'CLTC';
 
 const standardDescriptions: Record<Standard, string> = {
-  CLTC: 'Optimistic range',
-  WLTP: 'Balanced standard',
+  NEDC: 'Legacy standard',
   EPA: 'Real-world estimate',
-  NEDC: 'Legacy standard'
+  WLTP: 'Balanced standard',
+  CLTC: 'Optimistic range'
 };
 
+const standardOrder: Standard[] = ['NEDC', 'EPA', 'WLTP', 'CLTC'];
+
 export function EVConverter() {
-  const [activeStandard, setActiveStandard] = useState<Standard>('CLTC');
+  const [activeStandard, setActiveStandard] = useState<Standard>('NEDC');
   const [inputValue, setInputValue] = useState<string>('');
   const [results, setResults] = useState<Record<Standard, number>>({
-    CLTC: 0,
-    WLTP: 0,
+    NEDC: 0,
     EPA: 0,
-    NEDC: 0
+    WLTP: 0,
+    CLTC: 0
   });
 
   useEffect(() => {
     const val = parseFloat(inputValue);
     if (isNaN(val) || val <= 0) {
-      setResults({ CLTC: 0, WLTP: 0, EPA: 0, NEDC: 0 });
+      setResults({ NEDC: 0, EPA: 0, WLTP: 0, CLTC: 0 });
       return;
     }
 
@@ -71,7 +73,7 @@ export function EVConverter() {
             className="w-full"
           >
             <TabsList className="grid grid-cols-4 w-full bg-white/5 p-1 h-14">
-              {(['CLTC', 'WLTP', 'EPA', 'NEDC'] as Standard[]).map((std) => (
+              {standardOrder.map((std) => (
                 <TabsTrigger 
                   key={std} 
                   value={std}
@@ -104,7 +106,7 @@ export function EVConverter() {
 
       {/* Results Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {(['CLTC', 'WLTP', 'EPA', 'NEDC'] as Standard[]).map((std) => (
+        {standardOrder.map((std) => (
           <Card 
             key={std} 
             className={`glass-card relative overflow-hidden group ${std === activeStandard ? 'border-primary/50' : ''}`}
