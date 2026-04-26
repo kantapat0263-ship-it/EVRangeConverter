@@ -17,6 +17,7 @@ const translations: Record<Language, Record<string, any>> = {
     nav: {
       home: "หน้าหลัก",
       calculator: "คำนวณระยะทาง",
+      monthly_estimator: "คำนวณจากค่าไฟ TOU",
       guide: "EV Range Guide",
       info: "ข้อมูลมาตรฐาน",
       accessories: "อุปกรณ์แนะนำ",
@@ -31,6 +32,22 @@ const translations: Record<Language, Record<string, any>> = {
       unit: "กิโลเมตร",
       most_accurate: "ใกล้เคียงที่สุด",
       standard: "มาตรฐาน"
+    },
+    monthly: {
+      title: "EV Monthly Range Estimator",
+      subtitle: "คำนวณระยะทางจากค่าไฟ TOU",
+      tou_usage: "หน่วยไฟฟ้า TOU ที่ใช้ต่อเดือน (kWh)",
+      tou_desc: "กรอกจำนวนหน่วยไฟฟ้า kWh จากมิเตอร์ TOU ในเดือนนั้น ๆ",
+      vehicle_cons: "อัตราสิ้นเปลืองของรถ (kWh/100km)",
+      vehicle_desc: "กรอกค่าจากแอปรถหรือหน้าจอรถ เช่น 13.1 kWh/100km",
+      loss_factor: "ค่าปรับการใช้งานจริง (%)",
+      loss_desc: "ค่าเริ่มต้น 38% เผื่อความคลาดเคลื่อนจากการชาร์จ แอร์ และรถติด",
+      monthly_cost: "ค่าไฟชาร์จรถต่อเดือน (บาท) - ไม่บังคับ",
+      calculate: "คำนวณผลลัพธ์",
+      res_distance: "ระยะทางโดยประมาณต่อเดือน",
+      res_adjusted: "อัตราสิ้นเปลืองหลังปรับค่าจริง",
+      res_cost_km: "ค่าไฟโดยประมาณต่อกิโลเมตร",
+      disclaimer: "หมายเหตุ: ผลลัพธ์นี้เป็นค่าประมาณจากข้อมูล TOU และค่าเฉลี่ยการใช้พลังงานของรถ โดยมีการปรับ Real-world Loss Factor เพื่อให้ใกล้เคียงการใช้งานจริงมากขึ้น ค่าจริงอาจแตกต่างตามพฤติกรรมการขับขี่ สภาพอากาศ และสภาพเส้นทาง"
     },
     cost: {
       title: "คำนวณเปรียบเทียบค่าใช้จ่าย",
@@ -109,6 +126,7 @@ const translations: Record<Language, Record<string, any>> = {
     nav: {
       home: "Home",
       calculator: "Calculator",
+      monthly_estimator: "Monthly Estimator",
       guide: "EV Range Guide",
       info: "Standards Info",
       accessories: "Accessories",
@@ -123,6 +141,22 @@ const translations: Record<Language, Record<string, any>> = {
       unit: "Kilometers",
       most_accurate: "Most Accurate",
       standard: "Standard"
+    },
+    monthly: {
+      title: "EV Monthly Range Estimator",
+      subtitle: "Based on TOU Electricity Usage",
+      tou_usage: "TOU Electricity Usage (kWh/month)",
+      tou_desc: "Enter kWh from your TOU meter for the month.",
+      vehicle_cons: "Vehicle Energy Consumption (kWh/100km)",
+      vehicle_desc: "From your car's app or dashboard (e.g., 13.1)",
+      loss_factor: "Real-world Loss Factor (%)",
+      loss_desc: "Default 38% compensates for charging loss, A/C, and traffic.",
+      monthly_cost: "Monthly EV Electricity Cost (THB) - Optional",
+      calculate: "Calculate Results",
+      res_distance: "Estimated Monthly Distance",
+      res_adjusted: "Adjusted Energy Consumption",
+      res_cost_km: "Estimated Cost per km",
+      disclaimer: "Note: Results are estimates based on TOU data and vehicle averages. A Real-world Loss Factor is applied for accuracy. Actual results may vary based on driving habits, weather, and terrain."
     },
     cost: {
       title: "Cost Comparison Calculator",

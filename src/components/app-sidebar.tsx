@@ -7,7 +7,8 @@ import {
   Info,
   ShoppingBag,
   Zap,
-  BookOpen
+  BookOpen,
+  Calendar
 } from "lucide-react"
 
 import {
@@ -36,6 +37,11 @@ export function AppSidebar() {
       title: t('nav.calculator'),
       url: "#converter",
       icon: Calculator,
+    },
+    {
+      title: t('nav.monthly_estimator'),
+      url: "#monthly",
+      icon: Calendar,
     },
     {
       title: t('nav.guide'),
