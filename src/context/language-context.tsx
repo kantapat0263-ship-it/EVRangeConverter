@@ -17,6 +17,7 @@ const translations: Record<Language, Record<string, any>> = {
     nav: {
       home: "หน้าหลัก",
       calculator: "คำนวณระยะทาง",
+      saving: "คำนวณเงินประหยัด",
       guide: "EV Range Guide",
       info: "ข้อมูลมาตรฐาน",
       accessories: "อุปกรณ์แนะนำ",
@@ -43,6 +44,25 @@ const translations: Record<Language, Record<string, any>> = {
       savings_label: "ประหยัดได้ประมาณ",
       savings_unit: "บาท / 1,000 กม.",
       per_km: "บาท/กม."
+    },
+    saving: {
+      title: "EV Saving Calculator | คำนวณเงินประหยัดจากรถ EV",
+      intro: "คำนวณเงินที่คุณประหยัดได้จากการเปลี่ยนมาใช้รถยนต์ไฟฟ้า เพียงกรอกค่าน้ำมันเดิมต่อเดือน และค่าไฟหรือค่าชาร์จ EV ต่อเดือน ระบบจะช่วยประเมินเงินที่ประหยัดได้ต่อเดือน ต่อปี และในระยะยาว",
+      gas_label: "ค่าน้ำมันเดิมต่อเดือน",
+      gas_desc: "กรอกค่าใช้จ่ายน้ำมันเฉลี่ยต่อเดือนก่อนเปลี่ยนมาใช้รถ EV เช่น 6,000 บาทต่อเดือน",
+      ev_label: "ค่าไฟหรือค่าชาร์จ EV ต่อเดือน",
+      ev_desc: "กรอกค่าไฟจากมิเตอร์ TOU หรือค่าชาร์จรถ EV เฉลี่ยต่อเดือน เช่น 2,000 บาทต่อเดือน",
+      years_label: "จำนวนปีที่ต้องการคำนวณ",
+      years_desc: "ใช้สำหรับคำนวณเงินที่ประหยัดได้ในระยะยาว เช่น 3 ปี 5 ปี หรือ 10 ปี",
+      calculate: "คำนวณ",
+      res_monthly: "ประหยัดต่อเดือน",
+      res_yearly: "ประหยัดต่อปี",
+      res_longterm: "ประหยัดใน {years} ปี",
+      res_percentage: "ลดค่าใช้จ่ายลง",
+      disclaimer: "หมายเหตุ: ผลลัพธ์นี้เป็นค่าประมาณจากค่าใช้จ่ายเฉลี่ยต่อเดือนที่ผู้ใช้กรอกจริง ไม่รวมค่าใช้จ่ายอื่น เช่น ค่าบำรุงรักษา ค่ายาง ค่าประกันภัย ค่าเสื่อมราคา ค่าติดตั้งเครื่องชาร์จ หรือค่าเปลี่ยนแบตเตอรี่ในอนาคต",
+      unit_baht: "บาท",
+      unit_per_month: "บาท/เดือน",
+      unit_per_year: "บาท/ปี"
     },
     info: {
       title: "มาตรฐานระยะทางรถยนต์ไฟฟ้า (EV)",
@@ -109,6 +129,7 @@ const translations: Record<Language, Record<string, any>> = {
     nav: {
       home: "Home",
       calculator: "Calculator",
+      saving: "Saving Calculator",
       guide: "EV Range Guide",
       info: "Standards Info",
       accessories: "Accessories",
@@ -135,6 +156,25 @@ const translations: Record<Language, Record<string, any>> = {
       savings_label: "Estimated Savings",
       savings_unit: "THB / 1,000 km",
       per_km: "THB/km"
+    },
+    saving: {
+      title: "EV Saving Calculator | Calculate Savings from EV",
+      intro: "Calculate how much you save by switching to an electric vehicle. Simply enter your previous monthly gasoline cost and your current monthly EV charging cost. Our tool will estimate your savings per month, per year, and in the long term.",
+      gas_label: "Monthly Gasoline Cost",
+      gas_desc: "Enter your average monthly gasoline cost before switching to an EV, e.g., 6,000 THB/month.",
+      ev_label: "Monthly EV Charging Cost",
+      ev_desc: "Enter your average monthly EV charging cost (e.g., from TOU meter), e.g., 2,000 THB/month.",
+      years_label: "Years to Calculate",
+      years_desc: "Used to calculate long-term savings, e.g., 3, 5, or 10 years.",
+      calculate: "Calculate",
+      res_monthly: "Monthly Saving",
+      res_yearly: "Yearly Saving",
+      res_longterm: "{years}-Year Saving",
+      res_percentage: "Saving Percentage",
+      disclaimer: "Note: These results are estimates based on your provided average monthly costs. It does not include other costs such as maintenance, tires, insurance, depreciation, charger installation, or future battery replacement.",
+      unit_baht: "THB",
+      unit_per_month: "THB/month",
+      unit_per_year: "THB/year"
     },
     info: {
       title: "EV Range Standards Info",
@@ -218,7 +258,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const parts = path.split('.');
     let current: any = translations[language];
     for (const part of parts) {
-      if (current[part] === undefined) return path;
+      if (!current || current[part] === undefined) return path;
       current = current[part];
     }
     return current;
