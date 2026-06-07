@@ -8,7 +8,8 @@ import {
   ShoppingBag,
   Zap,
   BookOpen,
-  Banknote
+  Banknote,
+  BatteryCharging
 } from "lucide-react"
 
 import {
@@ -37,6 +38,11 @@ export function AppSidebar() {
       title: t('nav.calculator'),
       url: "#converter",
       icon: Calculator,
+    },
+    {
+      title: t('nav.real_range'),
+      url: "#real-range",
+      icon: BatteryCharging,
     },
     {
       title: t('nav.saving'),

@@ -1,4 +1,5 @@
 import { EVConverter } from '@/components/ev-converter';
+import { EVRealRange } from '@/components/ev-real-range';
 import { EVSavingCalculator } from '@/components/ev-saving-calculator';
 import { EVHeader } from '@/components/ev-header';
 import { EVInformation } from '@/components/ev-information';
@@ -51,6 +52,14 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
+          name: 'รถ EV วิ่งจริงได้กี่กิโลเมตร? ต่างจากที่โฆษณาเท่าไหร่?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'ระยะวิ่งจริงของรถ EV มักได้ประมาณ 70–85% ของตัวเลขที่โฆษณา (โดยเฉพาะค่า NEDC/CLTC) เพราะการใช้งานจริงต้องเปิดแอร์ เจอรถติด ความเร็วสูง และแบตเตอรี่เสื่อมตามอายุ ใช้เครื่องคำนวณระยะวิ่งจริงของเราเพื่อประเมินตามรถและการขับขี่ของคุณ',
+          },
+        },
+        {
+          '@type': 'Question',
           name: 'มาตรฐาน CLTC, WLTP, EPA, NEDC ต่างกันอย่างไร?',
           acceptedAnswer: {
             '@type': 'Answer',
@@ -80,6 +89,10 @@ export default function Home() {
           <div className="w-full max-w-4xl space-y-24">
             <section id="converter" className="scroll-mt-24">
               <EVConverter />
+            </section>
+
+            <section id="real-range" className="scroll-mt-24">
+              <EVRealRange />
             </section>
 
             <section id="saving" className="scroll-mt-24">
