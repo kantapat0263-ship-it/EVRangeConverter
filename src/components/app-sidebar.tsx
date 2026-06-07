@@ -4,11 +4,11 @@ import * as React from "react"
 import {
   Home,
   Calculator,
-  Info,
   ShoppingBag,
   Zap,
   BookOpen,
-  Banknote
+  Banknote,
+  BatteryCharging
 } from "lucide-react"
 
 import {
@@ -34,6 +34,11 @@ export function AppSidebar() {
       icon: Home,
     },
     {
+      title: t('nav.real_range'),
+      url: "#real-range",
+      icon: BatteryCharging,
+    },
+    {
       title: t('nav.calculator'),
       url: "#converter",
       icon: Calculator,
@@ -44,19 +49,14 @@ export function AppSidebar() {
       icon: Banknote,
     },
     {
-      title: t('nav.guide'),
-      url: "#guide",
-      icon: BookOpen,
-    },
-    {
-      title: t('nav.info'),
-      url: "#info",
-      icon: Info,
-    },
-    {
       title: t('nav.accessories'),
       url: "#accessories",
       icon: ShoppingBag,
+    },
+    {
+      title: t('nav.knowledge'),
+      url: "#knowledge",
+      icon: BookOpen,
     },
   ]
 

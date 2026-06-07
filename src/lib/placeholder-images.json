@@ -6,6 +6,9 @@
       "description": "ป้องกันความร้อนจากแสงแดดสำหรับรถที่มีซันรูฟ เพิ่มความเย็นในห้องโดยสาร",
       "imageUrl": "https://img1.pic.in.th/images/ChatGPT-Image-22-..-2569-14_14_06.png",
       "imageHint": "sunroof sunshade",
+      "brand": "MG",
+      "models": ["MG ZS EV", "MG S5", "MG HS", "MG VS"],
+      "category": "interior",
       "link": "https://s.shopee.co.th/808vUrTMO1?share_channel_code=6"
     },
     {
@@ -14,6 +17,9 @@
       "description": "ช่วยจัดระเบียบสิ่งของภายในรถให้หยิบใช้ง่าย",
       "imageUrl": "https://img2.pic.in.th/ChatGPT-Image-22-..-2569-10_19_46.png",
       "imageHint": "console organizer",
+      "brand": "BYD",
+      "models": ["BYD Sealion 6"],
+      "category": "interior",
       "link": "https://s.shopee.co.th/LjU6ldqUE?share_channel_code=6"
     },
     {
@@ -22,6 +28,9 @@
       "description": "ปกป้องแผงหม้อน้ำและคอยล์ร้อนจากเศษหินขณะขับขี่",
       "imageUrl": "https://img1.pic.in.th/images/ChatGPT-Image-22-..-2569-10_33_26.png",
       "imageHint": "ev stone guard",
+      "brand": "BYD",
+      "models": ["BYD Dolphin", "BYD Sealion 7", "BYD M6", "BYD Atto 3", "BYD Seal"],
+      "category": "exterior",
       "link": "https://s.shopee.co.th/3VgVtHgrty?share_channel_code=6"
     },
     {
@@ -30,6 +39,9 @@
       "description": "รักษาความสะอาดและป้องกันคราบน้ำสำหรับช่องวางแก้ว",
       "imageUrl": "https://img1.pic.in.th/images/ChatGPT-Image-22-..-2569-11_50_18.png",
       "imageHint": "cup holder mat",
+      "brand": "BYD",
+      "models": ["BYD Atto 3"],
+      "category": "interior",
       "link": "https://s.shopee.co.th/60NqxFvE76?share_channel_code=6"
     },
     {
@@ -38,6 +50,9 @@
       "description": "เพิ่มความสวยงามและกระชับมือในการขับขี่",
       "imageUrl": "https://img2.pic.in.th/ChatGPT-Image-22-..-2569-13_59_00.png",
       "imageHint": "steering wheel cover",
+      "brand": "BYD",
+      "models": ["BYD Atto 3", "BYD Dolphin", "BYD Seal"],
+      "category": "interior",
       "link": "https://s.shopee.co.th/808vTmoEmP?share_channel_code=6"
     },
     {
@@ -46,6 +61,9 @@
       "description": "อุปกรณ์ตกแต่งภายในและช่วยลดเสียงเตือนสำหรับขับขี่ในหมู่บ้าน",
       "imageUrl": "https://img1.pic.in.th/images/ChatGPT-Image-22-..-2569-14_05_32.png",
       "imageHint": "seatbelt plug",
+      "brand": "Universal",
+      "models": [],
+      "category": "interior",
       "link": "https://s.shopee.co.th/2g7P8Pkdpg?share_channel_code=6"
     },
     {
@@ -54,6 +72,9 @@
       "description": "พรมปูพื้นรถยนต์คุณภาพสูง เข้ารูปสวยงาม ทนทาน",
       "imageUrl": "https://img1.pic.in.th/images/6cdec175b051359b2fbdfea113cd58cc.png",
       "imageHint": "car floor mat",
+      "brand": "Universal",
+      "models": [],
+      "category": "interior",
       "link": "https://s.shopee.co.th/AUqGeAgD20?share_channel_code=6"
     },
     {
@@ -62,6 +83,9 @@
       "description": "อุปกรณ์ช่วยเหลือฉุกเฉินในรถยนต์ ตัดสายเบลท์และทุบกระจกได้",
       "imageUrl": "https://img2.pic.in.th/eb7049d8c659343f49aa8df2fd940a1a.webp",
       "imageHint": "safety hammer",
+      "brand": "Universal",
+      "models": [],
+      "category": "safety",
       "link": "https://s.shopee.co.th/1BIbX9hJ5g?share_channel_code=6"
     },
     {
@@ -70,6 +94,9 @@
       "description": "ถังดับเพลิงสูตรสารสะอาด ไม่ทำลายสิ่งแวดล้อม ปลอดภัยต่ออุปกรณ์ไฟฟ้า",
       "imageUrl": "https://img1.pic.in.th/images/cc04141ba64e8038e7708bd7bf40fa00.png",
       "imageHint": "fire extinguisher",
+      "brand": "Universal",
+      "models": [],
+      "category": "safety",
       "link": "https://s.shopee.co.th/2Vnz7fi2Wf?share_channel_code=6"
     },
     {
@@ -78,6 +105,9 @@
       "description": "เครื่องชาร์จ EV พกพาคุณภาพสูง ควบคุมผ่านแอปมือถือสะดวกสบาย",
       "imageUrl": "https://img2.pic.in.th/9b719b7b6dd85332765159ccfc546b2e.webp",
       "imageHint": "portable ev charger",
+      "brand": "Universal",
+      "models": [],
+      "category": "charging",
       "link": "https://s.shopee.co.th/2Vnz7lJCm1?share_channel_code=6"
     }
   ]

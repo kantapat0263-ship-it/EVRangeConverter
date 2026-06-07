@@ -17,21 +17,68 @@ const translations: Record<Language, Record<string, any>> = {
     nav: {
       home: "หน้าหลัก",
       calculator: "คำนวณระยะทาง",
+      real_range: "ระยะวิ่งจริง",
       saving: "คำนวณเงินประหยัด",
       guide: "EV Range Guide",
       info: "ข้อมูลมาตรฐาน",
+      knowledge: "ความรู้ EV",
       accessories: "อุปกรณ์แนะนำ",
       navigation: "เมนู"
+    },
+    section: {
+      car_title: "🚗 เริ่มจากเลือกรถของคุณ",
+      car_sub: "เลือกครั้งเดียว ใช้ได้กับทุกเครื่องมือด้านล่าง",
+      converter_title: "🧮 แปลงทุกมาตรฐาน",
+      converter_sub: "เทียบ NEDC · CLTC · WLTP · EPA พร้อมกัน",
+      savings_title: "💰 ความคุ้มค่า & เงินที่ประหยัด",
+      savings_tab_perkm: "ต่อกิโลเมตร",
+      savings_tab_monthly: "ต่อเดือน / รายปี",
+      knowledge_title: "📚 ความรู้เรื่องรถ EV",
+      knowledge_sub: "ทำความเข้าใจระยะทางและมาตรฐาน EV"
     },
     header: {
       title: "EV Range Converter",
       subtitle: "ตัวแปลงระยะทางรถยนต์ไฟฟ้า"
+    },
+    car: {
+      label: "รถ EV ของคุณ",
+      placeholder: "เลือกรุ่นรถ EV ของคุณ...",
+      note: "ค่าโดยประมาณจากผู้ผลิต ปรับแก้ได้ทุกช่อง",
+      clear: "ล้างการเลือก",
+      battery: "แบตเตอรี่",
+      range: "ระยะทาง"
     },
     converter: {
       placeholder: "ใส่ระยะทาง (กม.)...",
       unit: "กิโลเมตร",
       most_accurate: "ใกล้เคียงที่สุด",
       standard: "มาตรฐาน"
+    },
+    realrange: {
+      title: "🔋 คำนวณระยะวิ่งจริง",
+      subtitle: "ตัวเลขที่โฆษณา ≠ ระยะที่วิ่งได้จริง — ลองปรับตามการใช้งานของคุณ",
+      source_label: "ระยะที่โฆษณา",
+      pick_hint: "เลือกรถด้านบน หรือกรอกระยะที่โฆษณาเอง",
+      climate: "สภาพอากาศ / แอร์",
+      climate_normal: "ปกติ",
+      climate_hot: "ร้อนจัด เปิดแอร์เต็มที่",
+      climate_rain: "ฝน / ถนนเปียก",
+      driving: "รูปแบบการขับ",
+      driving_city: "ในเมือง / รถติด",
+      driving_mixed: "ผสม",
+      driving_highway: "ทางไกล / เร็วสูง",
+      style: "สไตล์การขับ",
+      style_eco: "ประหยัด",
+      style_normal: "ปกติ",
+      style_aggressive: "เหยียบแรง",
+      age: "อายุแบตเตอรี่",
+      age_new: "รถใหม่",
+      age_mid: "2–3 ปี",
+      age_old: "4 ปีขึ้นไป",
+      result_label: "วิ่งจริงประมาณ",
+      result_percent: "≈ {percent}% ของที่โฆษณา",
+      disclaimer: "เป็นค่าประมาณจากปัจจัยทั่วไป ระยะจริงขึ้นกับการขับขี่ น้ำหนักบรรทุก และสภาพถนนจริง",
+      unit: "กม."
     },
     cost: {
       title: "คำนวณเปรียบเทียบค่าใช้จ่าย",
@@ -118,7 +165,12 @@ const translations: Record<Language, Record<string, any>> = {
       summary_text: "การใช้ EV range calculator ช่วยให้คุณเข้าใจการใช้พลังงานของรถไฟฟ้าได้ดีขึ้น และช่วยวางแผนการใช้งานได้อย่างมั่นใจมากขึ้น"
     },
     accessories: {
-      title: "🛍️ อุปกรณ์รถ EV ที่แนะนำ"
+      title: "🛍️ อุปกรณ์รถ EV ที่แนะนำ",
+      subtitle: "เลือกยี่ห้อรถของคุณ เพื่อดูอุปกรณ์ที่ใส่ได้พอดี",
+      filter_all: "ทั้งหมด",
+      filter_universal: "ใช้ได้ทุกรุ่น",
+      fits_all: "ใส่ได้ทุกรุ่น",
+      empty: "ยังไม่มีอุปกรณ์เฉพาะยี่ห้อนี้ — ด้านล่างเป็นของที่ใช้ได้ทุกรุ่น"
     },
     footer: {
       install: "ติดตั้งลำโพงคุณภาพ",
@@ -129,21 +181,68 @@ const translations: Record<Language, Record<string, any>> = {
     nav: {
       home: "Home",
       calculator: "Calculator",
+      real_range: "Real Range",
       saving: "Saving Calculator",
       guide: "EV Range Guide",
       info: "Standards Info",
+      knowledge: "EV Knowledge",
       accessories: "Accessories",
       navigation: "Navigation"
+    },
+    section: {
+      car_title: "🚗 Start by picking your car",
+      car_sub: "Pick once — used by every tool below",
+      converter_title: "🧮 Convert across standards",
+      converter_sub: "Compare NEDC · CLTC · WLTP · EPA at once",
+      savings_title: "💰 Cost & Savings",
+      savings_tab_perkm: "Per kilometer",
+      savings_tab_monthly: "Per month / year",
+      knowledge_title: "📚 EV Knowledge",
+      knowledge_sub: "Understand EV range and standards"
     },
     header: {
       title: "EV Range Converter",
       subtitle: "Electric Vehicle Distance Converter"
+    },
+    car: {
+      label: "Your EV",
+      placeholder: "Select your EV model...",
+      note: "Approximate manufacturer figures — every field is editable",
+      clear: "Clear selection",
+      battery: "Battery",
+      range: "Range"
     },
     converter: {
       placeholder: "Enter distance (km)...",
       unit: "Kilometers",
       most_accurate: "Most Accurate",
       standard: "Standard"
+    },
+    realrange: {
+      title: "🔋 Real-World Range Estimator",
+      subtitle: "The advertised number ≠ what you actually get — adjust for how you drive",
+      source_label: "Advertised range",
+      pick_hint: "Pick your car above, or type the advertised range",
+      climate: "Weather / A/C",
+      climate_normal: "Normal",
+      climate_hot: "Very hot, A/C full",
+      climate_rain: "Rain / wet road",
+      driving: "Driving type",
+      driving_city: "City / traffic",
+      driving_mixed: "Mixed",
+      driving_highway: "Highway / fast",
+      style: "Driving style",
+      style_eco: "Eco",
+      style_normal: "Normal",
+      style_aggressive: "Aggressive",
+      age: "Battery age",
+      age_new: "New",
+      age_mid: "2–3 yrs",
+      age_old: "4+ yrs",
+      result_label: "Real-world range",
+      result_percent: "≈ {percent}% of advertised",
+      disclaimer: "Estimate based on general factors. Actual range depends on your driving, load and real road conditions.",
+      unit: "km"
     },
     cost: {
       title: "Cost Comparison Calculator",
@@ -230,7 +329,12 @@ const translations: Record<Language, Record<string, any>> = {
       summary_text: "An EV range calculator helps you understand your vehicle's energy usage and plan your drives with more confidence."
     },
     accessories: {
-      title: "🛍️ Recommended EV Accessories"
+      title: "🛍️ Recommended EV Accessories",
+      subtitle: "Pick your car brand to see accessories that fit",
+      filter_all: "All",
+      filter_universal: "Fits all",
+      fits_all: "Fits all EVs",
+      empty: "No brand-specific accessories yet — universal ones are shown below"
     },
     footer: {
       install: "Quality Speaker Installation",

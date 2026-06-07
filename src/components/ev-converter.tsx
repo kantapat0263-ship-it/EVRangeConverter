@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { CostCalculator } from '@/components/cost-calculator';
 import { Battery, Zap, Gauge, MapPin } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import { useCar } from '@/context/car-context';
 
 type Standard = 'NEDC' | 'EPA' | 'WLTP' | 'CLTC';
 
@@ -14,8 +14,20 @@ const standardOrder: Standard[] = ['NEDC', 'EPA', 'WLTP', 'CLTC'];
 
 export function EVConverter() {
   const { t } = useLanguage();
+  const { selectedCar } = useCar();
   const [activeStandard, setActiveStandard] = useState<Standard>('NEDC');
   const [inputValue, setInputValue] = useState<string>('');
+
+  // Pre-fill the range and source standard when the user picks their car.
+  useEffect(() => {
+    if (selectedCar) {
+      setActiveStandard(selectedCar.standard);
+      setInputValue(String(selectedCar.range));
+    }
+    // Only react to a change of the selected car, not manual edits afterwards.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCar?.id]);
+
   const [results, setResults] = useState<Record<Standard, number>>({
     NEDC: 0,
     EPA: 0,
@@ -66,10 +78,20 @@ export function EVConverter() {
 
   return (
     <div className="space-y-8">
+      <div className="flex items-center gap-3">
+        <div className="h-8 w-1 bg-primary rounded-full shadow-[0_0_10px_rgba(51,188,255,0.8)]" />
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight">{t('section.converter_title')}</h2>
+          <p className="text-sm text-muted-foreground font-light mt-1">
+            {t('section.converter_sub')}
+          </p>
+        </div>
+      </div>
+
       <Card className="glass border-primary/20 overflow-hidden">
         <CardContent className="p-8 space-y-6">
-          <Tabs 
-            value={activeStandard} 
+          <Tabs
+            value={activeStandard}
             onValueChange={(v) => setActiveStandard(v as Standard)}
             className="w-full"
           >
@@ -140,10 +162,6 @@ export function EVConverter() {
             </CardContent>
           </Card>
         ))}
-      </div>
-
-      <div className="mt-12">
-        <CostCalculator kmPerCharge={results[activeStandard] || 100} />
       </div>
     </div>
   );

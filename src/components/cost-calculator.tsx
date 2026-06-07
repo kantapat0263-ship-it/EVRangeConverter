@@ -1,21 +1,40 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Zap, Fuel, TrendingDown } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import { useCar } from '@/context/car-context';
 
-export function CostCalculator({ kmPerCharge }: { kmPerCharge: number }) {
+export function CostCalculator({
+  kmPerCharge,
+  batteryKwh,
+}: {
+  kmPerCharge?: number;
+  batteryKwh?: number;
+}) {
   const { t } = useLanguage();
+  const { selectedCar } = useCar();
+
+  // Range per full charge: use the value passed in, else the selected car's
+  // range, else a sensible default. Battery size mirrors the same priority.
+  const effectiveKm = kmPerCharge ?? selectedCar?.range ?? 400;
+  const effectiveBattery = batteryKwh ?? selectedCar?.batteryKwh;
+
   const [electricityRate, setElectricityRate] = useState<string>("4.2");
   const [batterySize, setBatterySize] = useState<string>("60");
+
+  // Pre-fill the battery size when a car is selected upstream (still editable).
+  useEffect(() => {
+    if (effectiveBattery) setBatterySize(String(effectiveBattery));
+  }, [effectiveBattery]);
   const [gasPrice, setGasPrice] = useState<string>("38");
   const [fuelEconomy, setFuelEconomy] = useState<string>("15"); // km/L
 
-  const evCostPerKm = (parseFloat(batterySize) * parseFloat(electricityRate)) / kmPerCharge;
+  const evCostPerKm = (parseFloat(batterySize) * parseFloat(electricityRate)) / effectiveKm;
   const gasCostPerKm = parseFloat(gasPrice) / parseFloat(fuelEconomy);
   const savings = gasCostPerKm - evCostPerKm;
 
