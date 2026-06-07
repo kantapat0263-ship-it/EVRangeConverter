@@ -8,10 +8,67 @@ import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/s
 import { AppSidebar } from '@/components/app-sidebar';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { Footer } from '@/components/footer';
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from '@/lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      inLanguage: ['th-TH', 'en-US'],
+    },
+    {
+      '@type': 'WebApplication',
+      name: SITE_NAME,
+      url: SITE_URL,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'All',
+      description: SITE_DESCRIPTION,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'EV Range คืออะไร?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'EV Range คือระยะทางสูงสุดที่รถไฟฟ้าสามารถวิ่งได้จากแบตเตอรี่เต็ม 100% ขึ้นอยู่กับขนาดแบตเตอรี่ (kWh), การใช้พลังงาน (Wh/km), สภาพถนน และพฤติกรรมการขับขี่',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'ทำไมต้องใช้ EV Range Calculator?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'ช่วยวางแผนการเดินทางได้แม่นยำ รู้ว่าต้องชาร์จเมื่อไหร่ เปรียบเทียบรถ EV แต่ละรุ่นได้ และลดความเสี่ยงแบตหมดกลางทาง',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'มาตรฐาน CLTC, WLTP, EPA, NEDC ต่างกันอย่างไร?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'CLTC มักให้ค่าระยะทางสูงสุด, WLTP ให้ค่าสมดุลใกล้เคียงการใช้งานจริง, EPA เข้มงวดที่สุดและน่าเชื่อถือที่สุด ส่วน NEDC เป็นมาตรฐานเก่าที่ปัจจุบันแทบไม่ใช้แล้ว แนะนำให้อ้างอิงค่า EPA หรือ WLTP',
+          },
+        },
+      ],
+    },
+  ],
+};
 
 export default function Home() {
   return (
     <SidebarProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <AppSidebar />
       <SidebarInset className="bg-transparent">
         <LanguageSwitcher />
