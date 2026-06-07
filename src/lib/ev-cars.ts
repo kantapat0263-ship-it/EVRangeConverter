@@ -56,3 +56,15 @@ export function getCarById(id: string | null | undefined): EVCar | undefined {
   if (!id) return undefined;
   return EV_CARS.find((c) => c.id === id);
 }
+
+// Convert an advertised range under any standard into an EPA-equivalent (the
+// closest proxy for real-world), using the same ratios as the main converter.
+// Useful for fairly comparing models quoted under different standards.
+export function toEpaKm(value: number, standard: RangeStandard): number {
+  let cltc = 0;
+  if (standard === 'CLTC') cltc = value;
+  else if (standard === 'WLTP') cltc = value / 0.82;
+  else if (standard === 'EPA') cltc = (value * 1.168) / 0.82;
+  else if (standard === 'NEDC') cltc = (value * 0.85) / 0.82;
+  return (cltc * 0.82) / 1.168;
+}

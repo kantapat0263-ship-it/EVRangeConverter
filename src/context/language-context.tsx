@@ -18,12 +18,26 @@ const translations: Record<Language, Record<string, any>> = {
       home: "หน้าหลัก",
       calculator: "คำนวณระยะทาง",
       real_range: "ระยะวิ่งจริง",
+      compare: "เทียบรถ",
       saving: "คำนวณเงินประหยัด",
       guide: "EV Range Guide",
       info: "ข้อมูลมาตรฐาน",
       knowledge: "ความรู้ EV",
       accessories: "อุปกรณ์แนะนำ",
       navigation: "เมนู"
+    },
+    compare: {
+      title: "⚖️ เปรียบเทียบรถ EV 2 รุ่น",
+      subtitle: "เลือก 2 รุ่นเพื่อเทียบระยะวิ่งจริงและความคุ้มค่าแบบตรงไปตรงมา",
+      car_a: "รถคันที่ 1",
+      car_b: "รถคันที่ 2",
+      pick: "เลือกรุ่น...",
+      battery: "แบตเตอรี่",
+      advertised: "ระยะที่โฆษณา",
+      real: "ระยะเทียบจริง (EPA)",
+      efficiency: "ประสิทธิภาพ",
+      better: "ดีกว่า",
+      empty: "เลือกรถทั้ง 2 คัน เพื่อดูผลเปรียบเทียบ"
     },
     section: {
       car_title: "🚗 เริ่มจากเลือกรถของคุณ",
@@ -182,12 +196,26 @@ const translations: Record<Language, Record<string, any>> = {
       home: "Home",
       calculator: "Calculator",
       real_range: "Real Range",
+      compare: "Compare",
       saving: "Saving Calculator",
       guide: "EV Range Guide",
       info: "Standards Info",
       knowledge: "EV Knowledge",
       accessories: "Accessories",
       navigation: "Navigation"
+    },
+    compare: {
+      title: "⚖️ Compare 2 EVs",
+      subtitle: "Pick two models for a fair, real-world range and value comparison",
+      car_a: "Car 1",
+      car_b: "Car 2",
+      pick: "Select model...",
+      battery: "Battery",
+      advertised: "Advertised range",
+      real: "Real-world (EPA)",
+      efficiency: "Efficiency",
+      better: "Better",
+      empty: "Pick both cars to see the comparison"
     },
     section: {
       car_title: "🚗 Start by picking your car",
