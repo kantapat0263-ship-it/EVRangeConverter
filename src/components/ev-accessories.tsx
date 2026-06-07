@@ -1,17 +1,31 @@
 "use client"
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ShoppingBag, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import { useCar } from '@/context/car-context';
 
 const UNIVERSAL = 'Universal';
 
 export function EVAccessories() {
   const { t } = useLanguage();
+  const { selectedCar } = useCar();
   const [selectedBrand, setSelectedBrand] = useState<string>('all');
+
+  // When the user picks their car upstream, default the filter to that brand
+  // (only if we actually carry accessories for it). Still manually overridable.
+  useEffect(() => {
+    if (
+      selectedCar?.brand &&
+      PlaceHolderImages.some((i) => i.brand === selectedCar.brand)
+    ) {
+      setSelectedBrand(selectedCar.brand);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCar?.id]);
 
   // Brands that have at least one dedicated accessory (excluding Universal).
   const brands = useMemo(

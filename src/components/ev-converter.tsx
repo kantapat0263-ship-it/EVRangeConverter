@@ -5,8 +5,10 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { CostCalculator } from '@/components/cost-calculator';
+import { EVCarSelector } from '@/components/ev-car-selector';
 import { Battery, Zap, Gauge, MapPin } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import { useCar } from '@/context/car-context';
 
 type Standard = 'NEDC' | 'EPA' | 'WLTP' | 'CLTC';
 
@@ -14,8 +16,20 @@ const standardOrder: Standard[] = ['NEDC', 'EPA', 'WLTP', 'CLTC'];
 
 export function EVConverter() {
   const { t } = useLanguage();
+  const { selectedCar } = useCar();
   const [activeStandard, setActiveStandard] = useState<Standard>('NEDC');
   const [inputValue, setInputValue] = useState<string>('');
+
+  // Pre-fill the range and source standard when the user picks their car.
+  useEffect(() => {
+    if (selectedCar) {
+      setActiveStandard(selectedCar.standard);
+      setInputValue(String(selectedCar.range));
+    }
+    // Only react to a change of the selected car, not manual edits afterwards.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCar?.id]);
+
   const [results, setResults] = useState<Record<Standard, number>>({
     NEDC: 0,
     EPA: 0,
@@ -68,7 +82,9 @@ export function EVConverter() {
     <div className="space-y-8">
       <Card className="glass border-primary/20 overflow-hidden">
         <CardContent className="p-8 space-y-6">
-          <Tabs 
+          <EVCarSelector />
+
+          <Tabs
             value={activeStandard} 
             onValueChange={(v) => setActiveStandard(v as Standard)}
             className="w-full"
@@ -143,7 +159,10 @@ export function EVConverter() {
       </div>
 
       <div className="mt-12">
-        <CostCalculator kmPerCharge={results[activeStandard] || 100} />
+        <CostCalculator
+          kmPerCharge={results[activeStandard] || 100}
+          batteryKwh={selectedCar?.batteryKwh}
+        />
       </div>
     </div>
   );

@@ -27,6 +27,14 @@ const translations: Record<Language, Record<string, any>> = {
       title: "EV Range Converter",
       subtitle: "ตัวแปลงระยะทางรถยนต์ไฟฟ้า"
     },
+    car: {
+      label: "รถ EV ของคุณ",
+      placeholder: "เลือกรุ่นรถ EV ของคุณ...",
+      note: "ค่าโดยประมาณจากผู้ผลิต ปรับแก้ได้ทุกช่อง",
+      clear: "ล้างการเลือก",
+      battery: "แบตเตอรี่",
+      range: "ระยะทาง"
+    },
     converter: {
       placeholder: "ใส่ระยะทาง (กม.)...",
       unit: "กิโลเมตร",
@@ -143,6 +151,14 @@ const translations: Record<Language, Record<string, any>> = {
     header: {
       title: "EV Range Converter",
       subtitle: "Electric Vehicle Distance Converter"
+    },
+    car: {
+      label: "Your EV",
+      placeholder: "Select your EV model...",
+      note: "Approximate manufacturer figures — every field is editable",
+      clear: "Clear selection",
+      battery: "Battery",
+      range: "Range"
     },
     converter: {
       placeholder: "Enter distance (km)...",

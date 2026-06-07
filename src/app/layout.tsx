@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { LanguageProvider } from '@/context/language-context';
+import { CarProvider } from '@/context/car-context';
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SITE_KEYWORDS } from '@/lib/site';
 
 const TITLE = 'EV Range Calculator | Convert Distance to Battery Usage';
@@ -78,7 +79,9 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-[#121516] text-foreground min-h-screen">
         <LanguageProvider>
-          {children}
+          <CarProvider>
+            {children}
+          </CarProvider>
         </LanguageProvider>
       </body>
     </html>
