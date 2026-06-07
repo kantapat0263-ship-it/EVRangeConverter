@@ -27,6 +27,15 @@ export function CostCalculator({
   const [electricityRate, setElectricityRate] = useState<string>("4.2");
   const [batterySize, setBatterySize] = useState<string>("60");
 
+  // Common Thailand charging sources (approximate THB/kWh, editable).
+  const chargingPresets: { key: string; rate: number }[] = [
+    { key: 'home_offpeak', rate: 2.6 },
+    { key: 'home_normal', rate: 4.2 },
+    { key: 'home_onpeak', rate: 5.8 },
+    { key: 'public_ac', rate: 7.5 },
+    { key: 'dc_fast', rate: 8.0 },
+  ];
+
   // Pre-fill the battery size when a car is selected upstream (still editable).
   useEffect(() => {
     if (effectiveBattery) setBatterySize(String(effectiveBattery));
@@ -47,6 +56,30 @@ export function CostCalculator({
         </CardTitle>
       </CardHeader>
       <CardContent className="p-6 space-y-6 flex-1">
+        {/* Thailand charging-source presets */}
+        <div className="space-y-2">
+          <Label className="text-xs text-muted-foreground">{t('charging.title')}</Label>
+          <div className="flex flex-wrap gap-2">
+            {chargingPresets.map(({ key, rate }) => {
+              const active = parseFloat(electricityRate) === rate;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setElectricityRate(String(rate))}
+                  className={`px-3 py-1.5 rounded-full text-xs border transition-all duration-200 ${
+                    active
+                      ? 'bg-secondary text-secondary-foreground border-secondary'
+                      : 'bg-white/5 text-muted-foreground border-white/10 hover:border-secondary/40 hover:text-foreground'
+                  }`}
+                >
+                  {t(`charging.${key}`)} · {rate}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label className="text-xs text-muted-foreground">{t('cost.rate')}</Label>

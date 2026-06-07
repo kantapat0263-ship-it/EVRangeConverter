@@ -91,6 +91,7 @@ const translations: Record<Language, Record<string, any>> = {
       age_old: "4 ปีขึ้นไป",
       result_label: "วิ่งจริงประมาณ",
       result_percent: "≈ {percent}% ของที่โฆษณา",
+      share: "แชร์ผลเป็นรูป",
       disclaimer: "เป็นค่าประมาณจากปัจจัยทั่วไป ระยะจริงขึ้นกับการขับขี่ น้ำหนักบรรทุก และสภาพถนนจริง",
       unit: "กม."
     },
@@ -105,6 +106,14 @@ const translations: Record<Language, Record<string, any>> = {
       savings_label: "ประหยัดได้ประมาณ",
       savings_unit: "บาท / 1,000 กม.",
       per_km: "บาท/กม."
+    },
+    charging: {
+      title: "เลือกแหล่งชาร์จ (ค่าโดยประมาณ บาท/หน่วย)",
+      home_offpeak: "บ้าน TOU (Off-peak)",
+      home_normal: "บ้าน (ปกติ)",
+      home_onpeak: "บ้าน TOU (On-peak)",
+      public_ac: "ตู้สาธารณะ (AC)",
+      dc_fast: "ชาร์จด่วน (DC)"
     },
     saving: {
       title: "EV Saving Calculator | คำนวณเงินประหยัดจากรถ EV",
@@ -269,6 +278,7 @@ const translations: Record<Language, Record<string, any>> = {
       age_old: "4+ yrs",
       result_label: "Real-world range",
       result_percent: "≈ {percent}% of advertised",
+      share: "Share as image",
       disclaimer: "Estimate based on general factors. Actual range depends on your driving, load and real road conditions.",
       unit: "km"
     },
@@ -283,6 +293,14 @@ const translations: Record<Language, Record<string, any>> = {
       savings_label: "Estimated Savings",
       savings_unit: "THB / 1,000 km",
       per_km: "THB/km"
+    },
+    charging: {
+      title: "Charging source (approx. THB/kWh)",
+      home_offpeak: "Home TOU (Off-peak)",
+      home_normal: "Home (Normal)",
+      home_onpeak: "Home TOU (On-peak)",
+      public_ac: "Public (AC)",
+      dc_fast: "Fast charge (DC)"
     },
     saving: {
       title: "EV Saving Calculator | Calculate Savings from EV",
