@@ -1,10 +1,10 @@
 import { EVConverter } from '@/components/ev-converter';
 import { EVRealRange } from '@/components/ev-real-range';
-import { EVSavingCalculator } from '@/components/ev-saving-calculator';
+import { EVSavings } from '@/components/ev-savings';
+import { EVCarPanel } from '@/components/ev-car-panel';
 import { EVHeader } from '@/components/ev-header';
-import { EVInformation } from '@/components/ev-information';
 import { EVAccessories } from '@/components/ev-accessories';
-import { EVGuide } from '@/components/ev-guide';
+import { EVKnowledge } from '@/components/ev-knowledge';
 import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/app-sidebar';
 import { LanguageSwitcher } from '@/components/language-switcher';
@@ -87,28 +87,28 @@ export default function Home() {
           <EVHeader />
           
           <div className="w-full max-w-4xl space-y-24">
-            <section id="converter" className="scroll-mt-24">
-              <EVConverter />
+            <section id="car" className="scroll-mt-24">
+              <EVCarPanel />
             </section>
 
             <section id="real-range" className="scroll-mt-24">
               <EVRealRange />
             </section>
 
-            <section id="saving" className="scroll-mt-24">
-              <EVSavingCalculator />
+            <section id="converter" className="scroll-mt-24">
+              <EVConverter />
             </section>
 
-            <section id="guide" className="scroll-mt-24">
-              <EVGuide />
+            <section id="saving" className="scroll-mt-24">
+              <EVSavings />
             </section>
-            
-            <section id="info" className="scroll-mt-24">
-              <EVInformation />
-            </section>
-            
+
             <section id="accessories" className="scroll-mt-24">
               <EVAccessories />
+            </section>
+
+            <section id="knowledge" className="scroll-mt-24">
+              <EVKnowledge />
             </section>
           </div>
           

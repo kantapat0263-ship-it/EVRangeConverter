@@ -4,7 +4,6 @@ import * as React from "react"
 import {
   Home,
   Calculator,
-  Info,
   ShoppingBag,
   Zap,
   BookOpen,
@@ -35,14 +34,14 @@ export function AppSidebar() {
       icon: Home,
     },
     {
-      title: t('nav.calculator'),
-      url: "#converter",
-      icon: Calculator,
-    },
-    {
       title: t('nav.real_range'),
       url: "#real-range",
       icon: BatteryCharging,
+    },
+    {
+      title: t('nav.calculator'),
+      url: "#converter",
+      icon: Calculator,
     },
     {
       title: t('nav.saving'),
@@ -50,19 +49,14 @@ export function AppSidebar() {
       icon: Banknote,
     },
     {
-      title: t('nav.guide'),
-      url: "#guide",
-      icon: BookOpen,
-    },
-    {
-      title: t('nav.info'),
-      url: "#info",
-      icon: Info,
-    },
-    {
       title: t('nav.accessories'),
       url: "#accessories",
       icon: ShoppingBag,
+    },
+    {
+      title: t('nav.knowledge'),
+      url: "#knowledge",
+      icon: BookOpen,
     },
   ]
 

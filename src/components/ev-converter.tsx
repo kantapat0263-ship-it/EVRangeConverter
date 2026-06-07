@@ -4,8 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { CostCalculator } from '@/components/cost-calculator';
-import { EVCarSelector } from '@/components/ev-car-selector';
 import { Battery, Zap, Gauge, MapPin } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 import { useCar } from '@/context/car-context';
@@ -80,12 +78,20 @@ export function EVConverter() {
 
   return (
     <div className="space-y-8">
+      <div className="flex items-center gap-3">
+        <div className="h-8 w-1 bg-primary rounded-full shadow-[0_0_10px_rgba(51,188,255,0.8)]" />
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight">{t('section.converter_title')}</h2>
+          <p className="text-sm text-muted-foreground font-light mt-1">
+            {t('section.converter_sub')}
+          </p>
+        </div>
+      </div>
+
       <Card className="glass border-primary/20 overflow-hidden">
         <CardContent className="p-8 space-y-6">
-          <EVCarSelector />
-
           <Tabs
-            value={activeStandard} 
+            value={activeStandard}
             onValueChange={(v) => setActiveStandard(v as Standard)}
             className="w-full"
           >
@@ -156,13 +162,6 @@ export function EVConverter() {
             </CardContent>
           </Card>
         ))}
-      </div>
-
-      <div className="mt-12">
-        <CostCalculator
-          kmPerCharge={results[activeStandard] || 100}
-          batteryKwh={selectedCar?.batteryKwh}
-        />
       </div>
     </div>
   );

@@ -21,8 +21,20 @@ const translations: Record<Language, Record<string, any>> = {
       saving: "คำนวณเงินประหยัด",
       guide: "EV Range Guide",
       info: "ข้อมูลมาตรฐาน",
+      knowledge: "ความรู้ EV",
       accessories: "อุปกรณ์แนะนำ",
       navigation: "เมนู"
+    },
+    section: {
+      car_title: "🚗 เริ่มจากเลือกรถของคุณ",
+      car_sub: "เลือกครั้งเดียว ใช้ได้กับทุกเครื่องมือด้านล่าง",
+      converter_title: "🧮 แปลงทุกมาตรฐาน",
+      converter_sub: "เทียบ NEDC · CLTC · WLTP · EPA พร้อมกัน",
+      savings_title: "💰 ความคุ้มค่า & เงินที่ประหยัด",
+      savings_tab_perkm: "ต่อกิโลเมตร",
+      savings_tab_monthly: "ต่อเดือน / รายปี",
+      knowledge_title: "📚 ความรู้เรื่องรถ EV",
+      knowledge_sub: "ทำความเข้าใจระยะทางและมาตรฐาน EV"
     },
     header: {
       title: "EV Range Converter",
@@ -173,8 +185,20 @@ const translations: Record<Language, Record<string, any>> = {
       saving: "Saving Calculator",
       guide: "EV Range Guide",
       info: "Standards Info",
+      knowledge: "EV Knowledge",
       accessories: "Accessories",
       navigation: "Navigation"
+    },
+    section: {
+      car_title: "🚗 Start by picking your car",
+      car_sub: "Pick once — used by every tool below",
+      converter_title: "🧮 Convert across standards",
+      converter_sub: "Compare NEDC · CLTC · WLTP · EPA at once",
+      savings_title: "💰 Cost & Savings",
+      savings_tab_perkm: "Per kilometer",
+      savings_tab_monthly: "Per month / year",
+      knowledge_title: "📚 EV Knowledge",
+      knowledge_sub: "Understand EV range and standards"
     },
     header: {
       title: "EV Range Converter",
