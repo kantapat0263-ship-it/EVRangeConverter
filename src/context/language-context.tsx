@@ -118,7 +118,12 @@ const translations: Record<Language, Record<string, any>> = {
       summary_text: "การใช้ EV range calculator ช่วยให้คุณเข้าใจการใช้พลังงานของรถไฟฟ้าได้ดีขึ้น และช่วยวางแผนการใช้งานได้อย่างมั่นใจมากขึ้น"
     },
     accessories: {
-      title: "🛍️ อุปกรณ์รถ EV ที่แนะนำ"
+      title: "🛍️ อุปกรณ์รถ EV ที่แนะนำ",
+      subtitle: "เลือกยี่ห้อรถของคุณ เพื่อดูอุปกรณ์ที่ใส่ได้พอดี",
+      filter_all: "ทั้งหมด",
+      filter_universal: "ใช้ได้ทุกรุ่น",
+      fits_all: "ใส่ได้ทุกรุ่น",
+      empty: "ยังไม่มีอุปกรณ์เฉพาะยี่ห้อนี้ — ด้านล่างเป็นของที่ใช้ได้ทุกรุ่น"
     },
     footer: {
       install: "ติดตั้งลำโพงคุณภาพ",
@@ -230,7 +235,12 @@ const translations: Record<Language, Record<string, any>> = {
       summary_text: "An EV range calculator helps you understand your vehicle's energy usage and plan your drives with more confidence."
     },
     accessories: {
-      title: "🛍️ Recommended EV Accessories"
+      title: "🛍️ Recommended EV Accessories",
+      subtitle: "Pick your car brand to see accessories that fit",
+      filter_all: "All",
+      filter_universal: "Fits all",
+      fits_all: "Fits all EVs",
+      empty: "No brand-specific accessories yet — universal ones are shown below"
     },
     footer: {
       install: "Quality Speaker Installation",
