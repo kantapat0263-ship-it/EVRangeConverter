@@ -1,26 +1,17 @@
 "use client"
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Thermometer, Route, Gauge, BatteryCharging, Info } from 'lucide-react';
+import { Thermometer, Route, Gauge, BatteryCharging, Info, Zap } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 import { useCar } from '@/context/car-context';
-import type { RangeStandard } from '@/lib/ev-cars';
+import { toEpaKm, type RangeStandard } from '@/lib/ev-cars';
+import { ShareButton } from '@/components/share-button';
+import { SITE_NAME, SITE_URL } from '@/lib/site';
 
 const STANDARDS: RangeStandard[] = ['NEDC', 'CLTC', 'WLTP', 'EPA'];
-
-// Convert an advertised range under any standard into an EPA-equivalent (the
-// closest proxy for real-world), using the same ratios as the main converter.
-function toEpaKm(value: number, standard: RangeStandard): number {
-  let cltc = 0;
-  if (standard === 'CLTC') cltc = value;
-  else if (standard === 'WLTP') cltc = value / 0.82;
-  else if (standard === 'EPA') cltc = (value * 1.168) / 0.82;
-  else if (standard === 'NEDC') cltc = (value * 0.85) / 0.82;
-  return (cltc * 0.82) / 1.168;
-}
 
 // General real-world adjustment factors (multipliers on the EPA-equivalent).
 const CLIMATE = { normal: 1.0, hot: 0.85, rain: 0.93 } as const;
@@ -43,6 +34,8 @@ export function EVRealRange() {
   const [driving, setDriving] = useState<DrivingKey>('mixed');
   const [style, setStyle] = useState<StyleKey>('normal');
   const [age, setAge] = useState<AgeKey>('new');
+
+  const shareRef = useRef<HTMLDivElement>(null);
 
   // Pre-fill from the selected car (still editable afterwards).
   useEffect(() => {
@@ -173,6 +166,13 @@ export function EVRealRange() {
               <div className="mt-3 inline-block text-sm px-4 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
                 {t('realrange.result_percent').replace('{percent}', String(result.percent))}
               </div>
+              <div className="mt-5 flex justify-center">
+                <ShareButton
+                  captureRef={shareRef}
+                  fileName="ev-real-range.png"
+                  label={t('realrange.share')}
+                />
+              </div>
             </div>
           )}
 
@@ -182,6 +182,75 @@ export function EVRealRange() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Off-screen branded card used for the shareable image */}
+      {result && (
+        <div className="fixed -left-[9999px] top-0 pointer-events-none" aria-hidden>
+          <div
+            ref={shareRef}
+            style={{
+              width: 600,
+              padding: 48,
+              background: 'linear-gradient(135deg, #15303d 0%, #121516 70%)',
+              color: '#ffffff',
+              fontFamily: 'sans-serif',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 28 }}>
+              <Zap style={{ width: 26, height: 26, color: '#33bcff' }} fill="#33bcff" />
+              <span style={{ fontSize: 22, fontWeight: 700, color: '#33bcff', letterSpacing: 1 }}>
+                {SITE_NAME}
+              </span>
+            </div>
+
+            {selectedCar && (
+              <div style={{ fontSize: 26, fontWeight: 700, marginBottom: 6 }}>
+                {selectedCar.brand} {selectedCar.model}
+              </div>
+            )}
+            <div style={{ fontSize: 16, color: '#94a3b8', marginBottom: 24 }}>
+              {t('realrange.result_label')}
+            </div>
+
+            <div style={{ fontSize: 72, fontWeight: 800, color: '#33bcff', lineHeight: 1 }}>
+              {result.low.toLocaleString()}–{result.high.toLocaleString()}
+              <span style={{ fontSize: 28, fontWeight: 400, color: '#94a3b8', marginLeft: 10 }}>
+                {t('realrange.unit')}
+              </span>
+            </div>
+            <div style={{ fontSize: 18, color: '#cbd5e1', marginTop: 14 }}>
+              {t('realrange.result_percent').replace('{percent}', String(result.percent))}
+            </div>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 28 }}>
+              {[
+                t(`realrange.climate_${climate}`),
+                t(`realrange.driving_${driving}`),
+                t(`realrange.style_${style}`),
+                t(`realrange.age_${age}`),
+              ].map((c, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: 14,
+                    color: '#cbd5e1',
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: 999,
+                    padding: '4px 14px',
+                  }}
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+
+            <div style={{ marginTop: 36, fontSize: 14, color: '#64748b' }}>
+              {SITE_URL.replace(/^https?:\/\//, '')}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

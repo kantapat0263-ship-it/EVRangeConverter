@@ -1,5 +1,6 @@
 import { EVConverter } from '@/components/ev-converter';
 import { EVRealRange } from '@/components/ev-real-range';
+import { EVCompare } from '@/components/ev-compare';
 import { EVSavings } from '@/components/ev-savings';
 import { EVCarPanel } from '@/components/ev-car-panel';
 import { EVHeader } from '@/components/ev-header';
@@ -93,6 +94,10 @@ export default function Home() {
 
             <section id="real-range" className="scroll-mt-24">
               <EVRealRange />
+            </section>
+
+            <section id="compare" className="scroll-mt-24">
+              <EVCompare />
             </section>
 
             <section id="converter" className="scroll-mt-24">

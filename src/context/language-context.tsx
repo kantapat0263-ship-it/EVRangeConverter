@@ -18,12 +18,26 @@ const translations: Record<Language, Record<string, any>> = {
       home: "หน้าหลัก",
       calculator: "คำนวณระยะทาง",
       real_range: "ระยะวิ่งจริง",
+      compare: "เทียบรถ",
       saving: "คำนวณเงินประหยัด",
       guide: "EV Range Guide",
       info: "ข้อมูลมาตรฐาน",
       knowledge: "ความรู้ EV",
       accessories: "อุปกรณ์แนะนำ",
       navigation: "เมนู"
+    },
+    compare: {
+      title: "⚖️ เปรียบเทียบรถ EV 2 รุ่น",
+      subtitle: "เลือก 2 รุ่นเพื่อเทียบระยะวิ่งจริงและความคุ้มค่าแบบตรงไปตรงมา",
+      car_a: "รถคันที่ 1",
+      car_b: "รถคันที่ 2",
+      pick: "เลือกรุ่น...",
+      battery: "แบตเตอรี่",
+      advertised: "ระยะที่โฆษณา",
+      real: "ระยะเทียบจริง (EPA)",
+      efficiency: "ประสิทธิภาพ",
+      better: "ดีกว่า",
+      empty: "เลือกรถทั้ง 2 คัน เพื่อดูผลเปรียบเทียบ"
     },
     section: {
       car_title: "🚗 เริ่มจากเลือกรถของคุณ",
@@ -77,6 +91,7 @@ const translations: Record<Language, Record<string, any>> = {
       age_old: "4 ปีขึ้นไป",
       result_label: "วิ่งจริงประมาณ",
       result_percent: "≈ {percent}% ของที่โฆษณา",
+      share: "แชร์ผลเป็นรูป",
       disclaimer: "เป็นค่าประมาณจากปัจจัยทั่วไป ระยะจริงขึ้นกับการขับขี่ น้ำหนักบรรทุก และสภาพถนนจริง",
       unit: "กม."
     },
@@ -91,6 +106,14 @@ const translations: Record<Language, Record<string, any>> = {
       savings_label: "ประหยัดได้ประมาณ",
       savings_unit: "บาท / 1,000 กม.",
       per_km: "บาท/กม."
+    },
+    charging: {
+      title: "เลือกแหล่งชาร์จ (ค่าโดยประมาณ บาท/หน่วย)",
+      home_offpeak: "บ้าน TOU (Off-peak)",
+      home_normal: "บ้าน (ปกติ)",
+      home_onpeak: "บ้าน TOU (On-peak)",
+      public_ac: "ตู้สาธารณะ (AC)",
+      dc_fast: "ชาร์จด่วน (DC)"
     },
     saving: {
       title: "EV Saving Calculator | คำนวณเงินประหยัดจากรถ EV",
@@ -182,12 +205,26 @@ const translations: Record<Language, Record<string, any>> = {
       home: "Home",
       calculator: "Calculator",
       real_range: "Real Range",
+      compare: "Compare",
       saving: "Saving Calculator",
       guide: "EV Range Guide",
       info: "Standards Info",
       knowledge: "EV Knowledge",
       accessories: "Accessories",
       navigation: "Navigation"
+    },
+    compare: {
+      title: "⚖️ Compare 2 EVs",
+      subtitle: "Pick two models for a fair, real-world range and value comparison",
+      car_a: "Car 1",
+      car_b: "Car 2",
+      pick: "Select model...",
+      battery: "Battery",
+      advertised: "Advertised range",
+      real: "Real-world (EPA)",
+      efficiency: "Efficiency",
+      better: "Better",
+      empty: "Pick both cars to see the comparison"
     },
     section: {
       car_title: "🚗 Start by picking your car",
@@ -241,6 +278,7 @@ const translations: Record<Language, Record<string, any>> = {
       age_old: "4+ yrs",
       result_label: "Real-world range",
       result_percent: "≈ {percent}% of advertised",
+      share: "Share as image",
       disclaimer: "Estimate based on general factors. Actual range depends on your driving, load and real road conditions.",
       unit: "km"
     },
@@ -255,6 +293,14 @@ const translations: Record<Language, Record<string, any>> = {
       savings_label: "Estimated Savings",
       savings_unit: "THB / 1,000 km",
       per_km: "THB/km"
+    },
+    charging: {
+      title: "Charging source (approx. THB/kWh)",
+      home_offpeak: "Home TOU (Off-peak)",
+      home_normal: "Home (Normal)",
+      home_onpeak: "Home TOU (On-peak)",
+      public_ac: "Public (AC)",
+      dc_fast: "Fast charge (DC)"
     },
     saving: {
       title: "EV Saving Calculator | Calculate Savings from EV",

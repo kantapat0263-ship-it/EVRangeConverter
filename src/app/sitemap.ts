@@ -5,7 +5,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   // Single-page app: expose the home page plus its key in-page sections as anchors.
-  const sections = ['', '#converter', '#saving', '#guide', '#info', '#accessories'];
+  const sections = [
+    '',
+    '#real-range',
+    '#compare',
+    '#converter',
+    '#saving',
+    '#accessories',
+    '#knowledge',
+  ];
 
   return sections.map((section) => ({
     url: `${SITE_URL}/${section}`,
